@@ -120,7 +120,7 @@ void mad_frame_finish(struct mad_frame *frame)
 
   if (frame->overlap) {
 #ifdef __OPT_X68K_HIMEM__
-    himem_free(frame->overlap, 1);
+    himem_free(frame->overlap);
 #else
     free(frame->overlap);
 #endif
