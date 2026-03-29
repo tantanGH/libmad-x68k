@@ -562,7 +562,7 @@ int mad_decoder_run(struct mad_decoder *decoder, enum mad_decoder_mode mode)
     return -1;
 
 #ifdef __OPT_X68K_HIMEM__
-  decoder->sync = himem_malloc(sizeof(*decoder->sync), 1);
+  decoder->sync = himem_malloc(sizeof(*decoder->sync));
 #else
   decoder->sync = malloc(sizeof(*decoder->sync));
 #endif

@@ -73,7 +73,7 @@ void mad_stream_finish(struct mad_stream *stream)
 {
   if (stream->main_data) {
 #ifdef __OPT_X68K_HIMEM__
-    himem_free(stream->main_data, 1);
+    himem_free(stream->main_data);
 #else
     free(stream->main_data);
 #endif

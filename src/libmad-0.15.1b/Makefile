@@ -41,7 +41,7 @@ CFLAGS_000 = -DFPM_DEFAULT -DOPT_SPEED -DOPT_SSO \
 				-D__OPT_X68K_16BIT_PCM_DIRECT__ \
 				$(COMMON_FLAGS_000)
 
-CFLAGS_000HM = -D_OPT_X68K_HIMEM $(CFLAGS_000)
+CFLAGS_000HM = -D__OPT_X68K_HIMEM__ $(CFLAGS_000)
 
 COMMON_FLAGS_030 = -m68030 -O3 -msoft-float \
 					-fomit-frame-pointer \
@@ -55,7 +55,7 @@ CFLAGS_030 = -DFPM_DEFAULT -DOPT_SPEED -DOPT_SSO \
 				-D__OPT_X68K_16BIT_PCM_DIRECT__ \
 				$(COMMON_FLAGS_030)
 
-CFLAGS_030HM = -D_OPT_X68K_HIMEM $(CFLAGS_030)
+CFLAGS_030HM = -D__OPT_X68K_HIMEM__ $(CFLAGS_030)
 
 COMMON_FLAGS_060 = -m68060 -O3 -msoft-float -mstrict-align \
 					-fomit-frame-pointer -fstrict-aliasing \
@@ -71,7 +71,7 @@ CFLAGS_060 = -DFPM_DEFAULT -DOPT_SPEED -DOPT_SSO \
 				-D__OPT_X68K_16BIT_PCM_DIRECT__ \
 				$(COMMON_FLAGS_060)
 
-CFLAGS_060HM = -D_OPT_X68K_HIMEM $(CFLAGS_060)
+CFLAGS_060HM = -D__OPT_X68K_HIMEM__ $(CFLAGS_060)
 
 # *.c ソースファイル
 C_SRCS = bit.c decoder.c fixed.c frame.c huffman.c layer3.c layer12.c stream.c synth.c timer.c version.c
