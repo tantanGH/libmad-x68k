@@ -1,0 +1,8 @@
+.DS_Store
+
+src/libmad-0.15.1b/_build/
+src/libmad-0.15.1b/_build000/
+src/libmad-0.15.1b/_build030/
+src/libmad-0.15.1b/_build060/
+
+src/_work/
