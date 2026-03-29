@@ -31,8 +31,8 @@ my_app/
 
 ヘッダー検索パスとライブラリ検索パスをMakefile内で
 ```
--I../libs/libj/include
--L../libs/libj/lib
+-I../libs/libmad-x68k/include
+-L../libs/libmad-x68k/lib
 ```
 のように指定し、`-lmad` でリンクできます。
 68030以上用、68060専用はそれぞれ`-lmad030`,`-lmad060`としてください。
