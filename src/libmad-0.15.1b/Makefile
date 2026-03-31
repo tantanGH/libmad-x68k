@@ -18,6 +18,8 @@ HAS2GAS = python3 has2gas.py
 TARGET_FILE_000 = ../../lib/libmad.a
 TARGET_FILE_030 = ../../lib/libmad030.a
 TARGET_FILE_060 = ../../lib/libmad060.a
+
+# 出力アーカイブファイル名(ハイメモリをワークエリアに使う版)
 TARGET_FILE_000HM = ../../lib/libmadhm.a
 TARGET_FILE_030HM = ../../lib/libmad030hm.a
 TARGET_FILE_060HM = ../../lib/libmad060hm.a
@@ -33,7 +35,7 @@ COMMON_FLAGS_000 = -m68000 -O3 -msoft-float \
 					-fomit-frame-pointer \
 				    -finline-functions -finline-limit=10000 \
 				    -falign-functions=4 -falign-loops=4 \
-				    -funroll-loops -fpeel-loops -fno-builtin \
+				    -funroll-loops -fpeel-loops \
 				   $(INCLUDE_FLAGS)
 
 CFLAGS_000 = -DFPM_DEFAULT -DOPT_SPEED -DOPT_SSO \
@@ -46,8 +48,8 @@ CFLAGS_000HM = -D__OPT_X68K_HIMEM__ $(CFLAGS_000)
 COMMON_FLAGS_030 = -m68030 -O3 -msoft-float \
 					-fomit-frame-pointer \
 				    -finline-functions -finline-limit=10000 \
-				    -falign-functions=16 -falign-loops=16 \
-				    -fno-unroll-loops -fno-peel-loops -fno-builtin \
+				    -falign-functions=16 -falign-loops=4 \
+				    -fno-unroll-loops -fno-peel-loops \
 				   $(INCLUDE_FLAGS)
 
 CFLAGS_030 = -DFPM_DEFAULT -DOPT_SPEED -DOPT_SSO \
@@ -60,11 +62,12 @@ CFLAGS_030HM = -D__OPT_X68K_HIMEM__ $(CFLAGS_030)
 COMMON_FLAGS_060 = -m68060 -O3 -msoft-float -mstrict-align \
 					-fomit-frame-pointer -fstrict-aliasing \
    					-fschedule-insns -fschedule-insns2 \
-				    -finline-functions -finline-limit=5000 -fopt-info-inline \
-				    -falign-functions=16 -falign-loops=16 \
-    				-fgcse -fgcse-after-reload \
-				    -fno-unroll-loops -fno-peel-loops -fno-builtin \
+				    -finline-functions -finline-limit=500 -fopt-info-inline \
+				    -falign-functions=16 -falign-loops=4 \
+				    -fno-unroll-loops -fno-peel-loops \
 				   $(INCLUDE_FLAGS)
+
+    				#-fgcse -fgcse-after-reload 
 
 CFLAGS_060 = -DFPM_DEFAULT -DOPT_SPEED -DOPT_SSO \
 				-D__OPT_X68K_FAST_LAYER_DECODE__ \
