@@ -2614,7 +2614,7 @@ int mad_layer_III(struct mad_stream *stream, struct mad_frame *frame)
   int result = 0;
 
 
-#ifndef __OPT_X68K_FAST_FRAME_DECODE__  
+#ifndef __OPT_X68K_PREALLOC_BUFFERS__  
   /* allocate Layer III dynamic structures */
 
   if (stream->main_data == 0) {

@@ -27,10 +27,6 @@
 #undef __OPT_X68K_FAST_LAYER_DECODE__
 #endif
 
-#ifdef __VERBOSE2__
-#include <iocslib.h>
-#endif
-
 # ifdef HAVE_CONFIG_H
 #  include "config.h"
 # endif
@@ -458,18 +454,9 @@ int mad_frame_decode(struct mad_frame *frame, struct mad_stream *stream)
   /* header() */
   /* error_check() */
 
-#ifdef __VERBOSE_FRAME_DECODE__
-  unsigned long t0 = ONTIME();
-#endif
-
   if (!(frame->header.flags & MAD_FLAG_INCOMPLETE) &&
       mad_header_decode(&frame->header, stream) == -1)
     goto fail;
-
-#ifdef __VERBOSE_FRAME_DECODE__
-  unsigned long t1 = ONTIME();
-  frame->header_decode_time = (t1 - t0);
-#endif
 
   /* audio_data() */
 
@@ -485,11 +472,6 @@ int mad_frame_decode(struct mad_frame *frame, struct mad_stream *stream)
 
     goto fail;
   }
-
-#ifdef __VERBOSE_FRAME_DECODE__
-  unsigned long t2 = ONTIME();
-  frame->layer3_time = (t2 - t1);
-#endif
 
   /* ancillary_data() */
 
