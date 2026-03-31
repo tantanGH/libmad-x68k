@@ -61,15 +61,15 @@ CFLAGS_030HM = -D__OPT_X68K_HIMEM__ $(CFLAGS_030)
 
 COMMON_FLAGS_060 = -m68060 -O3 -msoft-float -mstrict-align \
 					-fomit-frame-pointer -fstrict-aliasing \
-				    -finline-functions -finline-limit=5000 -fopt-info-inline \
-				    -falign-functions=16 -falign-loops=4 \
-				    -fno-unroll-loops -fno-peel-loops \
+    				-fschedule-insns -fschedule-insns2 \
+    				-finline-functions -finline-limit=5000 -fopt-info-inline \
+				    -falign-functions=16 -falign-loops=16 \
+    				-fgcse -fgcse-after-reload \
+				    -fno-unroll-loops -fno-peel-loops -fno-builtin \
 				   $(INCLUDE_FLAGS)
 
-   					#-fschedule-insns -fschedule-insns2
-    				#-fgcse -fgcse-after-reload 
-
 CFLAGS_060 = -DFPM_DEFAULT -DOPT_SPEED -DOPT_SSO \
+				-D__OPT_X68K_FAST_FRAME_DECODE__ \
 				-D__OPT_X68K_FAST_LAYER_DECODE__ \
 				-D__OPT_X68K_16BIT_PCM_DIRECT__ \
 				$(COMMON_FLAGS_060)
